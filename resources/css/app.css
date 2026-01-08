@@ -2,6 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Design tokens and component primitives */
+:root {
+    --color-primary: #7c3aed;
+    --color-primary-600: #6d28d9;
+    --color-accent: #ec4899;
+    --color-neutral: #6b7280;
+    --radius-lg: 0.75rem;
+    --shadow-md: 0 4px 14px rgba(31,41,55,0.08);
+}
+
+@layer base {
+    html, body {
+        @apply bg-white text-neutral-700 antialiased;
+    }
+
+    a {
+        @apply text-primary-600 hover:underline;
+    }
+
+    h1 { @apply text-3xl font-extrabold tracking-tight text-gray-900; }
+    h2 { @apply text-2xl font-bold text-gray-900; }
+    h3 { @apply text-xl font-semibold text-gray-900; }
+
+    p { @apply leading-7 text-neutral-700; }
+
+    input, button, textarea, select {
+        @apply font-sans;
+    }
+}
+
+@layer components {
+    .btn {
+        @apply inline-flex items-center px-4 py-2 rounded-md text-sm font-medium shadow-sm transition-colors duration-150 ease-in-out;
+    }
+
+    .btn-primary {
+        background-color: var(--color-primary);
+        color: white;
+    }
+
+    .btn-primary:hover { background-color: var(--color-primary-600); }
+
+    .btn-outline {
+        @apply border border-neutral-200 bg-white text-neutral-700;
+    }
+
+    .card {
+        @apply bg-white rounded-lg shadow-md overflow-hidden;
+    }
+
+    .card-body { @apply p-4; }
+
+    .input {
+        @apply block w-full rounded-md border border-neutral-200 px-3 py-2 bg-white text-sm text-neutral-700;
+    }
+
+    .input:focus {
+        @apply outline-none ring-2;
+        box-shadow: var(--shadow-md);
+        border-color: var(--color-primary-600);
+    }
+
+    .badge {
+        @apply inline-block px-2 py-0.5 text-xs font-semibold rounded-full bg-primary-100 text-primary-800;
+    }
+
+    .nav { @apply flex items-center gap-4; }
+
+    .alert { @apply p-3 rounded-md bg-yellow-50 text-yellow-800 border border-yellow-100; }
+
+    /* Utility helpers */
+    .container-max { max-width: 1100px; margin-left: auto; margin-right: auto; }
+}
+
 /* Custom Animations */
 @keyframes blob {
     0% {

@@ -14,7 +14,7 @@ class BookingController extends Controller
     /**
      * Step 1: Show service selection page.
      */
-    public function step1()
+    public function step1()//amir bangang
     {
         $services = Service::where('is_active', true)->get();
         return view('customer.booking.step1-service', compact('services'));

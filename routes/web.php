@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Route;
 // Public routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+// Style guide (dev-only)
+Route::get('/style-guide', function () { return view('style-guide'); })->name('style-guide');
+
 // Authentication routes (from Breeze)
 require __DIR__.'/auth.php';
 
